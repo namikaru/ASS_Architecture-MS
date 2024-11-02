@@ -1,0 +1,6 @@
+Flask
+pika
+flask_login
+flask_cors
+flask_session
+requests

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Book Collection Manager</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+    <nav>
+        <ul class="left-nav">
+            <li><a>Welcome to Book Collection Manager</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="http://localhost:5001/profile">Profile</a></li>
+        </ul>
+        <ul class="right-nav">
+            <li><a href="http://localhost:5001/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <h1>Book Collection Manager</h1>
+    <form id="addBookForm">
+        <label for="title">Book Title:</label>
+        <input type="text" id="title" name="title" required class="input"><br><br>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required class="input"><br><br>
+        <button class="button-name" type="submit">Add Book</button>
+    </form>
+
+    <h2>Book List</h2>
+    <ul id="book-list" style="list-style-type: none; padding: 0;">
+        {% for book in books %}
+            <li id="book-{{ book[0] }}" style="margin-bottom: 15px;">
+                <span style="font-weight: bold;">{{ loop.index }}.</span> {{ book[1] }} by {{ book[2] }}
+                <a href="/edit/{{ book[0] }}"><button type="button" class="button-name">Edit</button></a>
+                <button class="delete-button" data-id="{{ book[0] }}">Delete</button>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <div id="notification">Book Added!</div>
+
+    <script src="/static/js/scripts.js"></script>
+</body>
+</html>

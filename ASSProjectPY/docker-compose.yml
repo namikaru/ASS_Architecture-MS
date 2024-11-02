@@ -1,0 +1,27 @@
+version: '3'
+services:
+  mservice1:
+    build: ./mservice1
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mservice1:/app
+  mservice2:
+    build: ./mservice2
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./mservice2:/app
+  facade:
+    build: ./facade
+    ports:
+      - "5002:5002"
+  notification:
+    build: ./notification
+    ports:
+      - "5003:5003"
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"

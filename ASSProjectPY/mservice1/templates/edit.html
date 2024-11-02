@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Edit Book</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body class="edit-body">
+    <div class="container">
+        <h1>Edit Book</h1>
+        <div class="content">
+            <form class="content__form" action="/edit/{{ book[0] }}" method="post">
+                <div class="content__inputs">
+                    <label>
+                        <input required="" type="text" id="title" name="title" value="{{ book[1] }}">
+                        <span>Book Title</span>
+                    </label>
+                    <label>
+                        <input required="" type="text" id="author" name="author" value="{{ book[2] }}">
+                        <span>Author</span>
+                    </label>
+                </div>
+                <button type="submit">Update Book</button>
+            </form>
+            <div class="content__or-text">
+                <span></span>
+                <span>OR</span>
+                <span></span>
+            </div>
+            <div class="content__forgot-buttons">
+                <a href="/">Back to Collection</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
